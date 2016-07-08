@@ -56,7 +56,7 @@ func UdfHandler (res http.ResponseWriter, req *http.Request) {
 	fmt.Println("udfTy", jsonData["udfTy"])
 	fmt.Println("udfBody", jsonData["udfBody"])
 
-	// MQTT 데이터 전송
+	// MQTT 데이터 전송 111
 	//--------------------------------------------------
 
 	udfPayload := &protobuf.UDFPayload{
