@@ -1,0 +1,16 @@
+syntax = "proto2";
+option go_package = "protobuf";
+
+message UDFPayload {
+    optional int64 createdAt = 1;
+    optional int64 dvcId = 2;
+    required int32 fnctTyCd = 3;
+    extensions 4 to 100;
+    optional string udfNm = 101;
+    optional string udfBody = 102;
+    optional string udfTy = 103;
+    
+    optional int32 statCd = 104;
+    optional string statMssage = 105;
+    optional int64 reqId = 106;
+}

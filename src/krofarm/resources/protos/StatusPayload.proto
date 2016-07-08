@@ -1,0 +1,32 @@
+syntax = "proto2";
+option go_package = "protobuf";
+
+message StatusPayload {
+    optional int64 createdAt = 1;
+    extensions 2 to 100;
+    repeated StatDevice statDevice = 101;
+    optional int64 reqId = 102;
+    optional int32 reqTy = 103 [default = 0];
+    optional int32 subDvcStatChg = 104;
+}
+
+
+message StatDevice{
+    optional int64 dvcId = 1;
+    optional int32 commStatCd = 2;
+    optional string commStatMssage = 3;
+    optional int32 fnctngStatCd = 4;
+    optional string fnctngStatMssage = 5;
+    optional int32  cntrlStat = 6;
+    optional int32  dlgatStat = 7;
+    extensions 8 to 100;
+ 
+    repeated IOPoint ioPoint = 101;
+}
+
+message IOPoint{
+   required int32 ioPointId = 1;
+   required int32 fnctngStatCd =2;
+   optional string fnctngStatMssage = 3;
+}
+

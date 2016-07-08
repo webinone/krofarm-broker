@@ -1,0 +1,12 @@
+syntax = "proto2";
+option go_package = "protobuf";
+
+message UDMPayload {
+    optional int64 createdAt = 1;
+    required int64 dvcId = 2;
+    required int32 mssageTyCd = 3;
+    extensions 4 to 100;
+    optional string udmNm = 101;
+    optional string udmBody = 102;
+    optional string udmTy = 103;
+}

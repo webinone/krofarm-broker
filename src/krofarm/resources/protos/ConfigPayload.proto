@@ -1,0 +1,30 @@
+syntax = "proto2";
+option go_package = "protobuf";
+
+message ConfigPayload {
+    optional int64 createdAt = 1;
+    extensions 2 to 4999;
+    repeated ConfDevice confDevice = 5000;
+    repeated ConfAttribute confAttribute = 5001;
+    optional int64 reqId = 5002;
+    optional int32 reqTy = 5003 [default = 0];
+}
+
+
+message ConfDevice {
+    optional int64 dvcId = 1;
+    optional int32 fnctngModeCd = 2;
+    optional int32 totalOpenExecTime = 3;
+    optional int32 totalCloseExecTime = 4;
+    optional int32 execOffsetTime = 5;
+    extensions 6 to 999;
+}
+
+
+message ConfAttribute {
+    required int64 dvcId = 1;
+    required int32 attrbCd = 2;
+    optional int32 transfCycleAttrbVal = 3;
+    extensions 4 to 999;
+
+}

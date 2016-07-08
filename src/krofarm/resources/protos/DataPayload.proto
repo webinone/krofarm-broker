@@ -1,0 +1,51 @@
+syntax = "proto2";
+option go_package = "protobuf";
+
+message DataPayload {
+    optional int64 createdAt = 1;
+    extensions 2 to 4999;
+    repeated Attribute attribute = 5000;
+    optional int64 reqId = 5001; 
+    optional int32 reqTy = 5002 [default = 0];               
+}
+
+message Attribute {
+    optional int64 dvcId = 1;
+    optional int32 attrbCd = 2;
+    optional AttributeValue attrbVal = 3;
+    
+    extensions 4 to 100;
+    
+    optional int32 attrbStatCd = 101;
+    optional string attrbStatMssage = 102;
+    optional int32 curExecStep = 103;
+    repeated ExecAttribute execAttribute = 104;
+}
+
+message ExecAttribute {
+    optional int32 stepDelay =1;
+    optional AttributeValue stepFactor = 2;
+    optional int32 stepSeq = 3;
+}
+
+message AttributeValue {
+   required ValueType type = 1;
+   optional double double_value       = 2;
+   optional float  float_value        = 3;
+   optional int64  long_value         = 4;
+   optional int32  int_value          = 5;
+   optional bool   bool_value         = 6;
+   optional string string_value       = 7;
+   optional bytes  bytes_value        = 8;
+}
+
+
+enum ValueType {  
+    DOUBLE         = 0; 
+    FLOAT          = 1;
+    INT64          = 2;
+    INT32          = 3;
+    BOOL           = 4;
+    STRING         = 5;
+    BYTES          = 6;
+}

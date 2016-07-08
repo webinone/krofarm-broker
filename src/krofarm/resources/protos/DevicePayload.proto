@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "protobuf";
+
+message DevicePayload {
+    optional int64 createdAt = 1;
+    extensions 2 to 4999;
+    repeated DeviceInfo dvcInfo = 5000;
+    optional int64 reqId = 5001;          
+}
+
+message DeviceInfo {
+    required int64 dvcId = 1;
+    optional int64 parentDvcId = 2;
+    optional int32 proflTyCd = 3;
+
+    extensions 4 to 999;
+}
+
